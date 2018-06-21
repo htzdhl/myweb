@@ -3,8 +3,104 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>登陆</title>
+		<style>
+			*{margin:0;padding:0} 
+			#main{
+				width:45%;
+				margin:0 auto;
+				border:2px solid #dddddd;
+				background-color:#ffffff;
+			}
+			#title{
+				font-family:"微软雅黑";
+				font-size:2.5em;
+				margin:1em 0 1em 1em;
+				color:#bbbbbb;
+			}
+			#top{
+				border-bottom:1px solid #dddddd;
+			}
+			#login_button{
+				width:50%;
+				padding:5px 0 5px 0;
+				margin:1em 0 0 2.5em;
+				background-color:green;
+				color:#ffffff;
+				font-size:1em;
+				border:none;
+			}
+			#login{
+				width:30%;
+				margin:0 auto;
+				padding-top:2em;
+				font-family:"微软雅黑";
+				font-size:1em;
+			}
+			#login input{
+				padding:5px 0 5px 5px;
+			}
+			#bottom{
+				margin-bottom:2em;
+			}
+			a{
+				text-decoration:none;
+				margin-left:3.5em;
+				color:red;
+				font-szie:0.9em;
+			}
+			#login span{
+				color:red;
+				font-size:8px;
+			}
+			input{
+				margin-bottom:1em;
+			}
+
+		</style>
 	</head>
-	<body>
-		hello
+	<body style = "background-color:#eeeeee">
+		<div id = main>
+			<div id = "top">
+				<div id = "title">
+					<span>您好!请登录</span>
+				</div>
+			</div>
+			<div id = "bottom">
+				<div id = "login">
+					{% if message %}
+						<span id = "message">{{ message }}</span>
+					{% else %}
+					<form action = "/login/" method = "POST">
+						{% csrf_token %}
+						<!-- <table>
+							<tr>
+								<td><label for = "username">用户 <input type = "text" id = "username" name = "username"></label></td>
+							</tr>
+							<tr>
+								<td><label for = "password">密码 <input type = "password" id = "password" name = "password"></label></td>
+							</tr>
+							<tr>
+								<td><label for = "autologin" style = "color:red;font-size:15px;">记住密码 <input type = "checkbox" id = "autologin" name = "autologin"></label></td>
+							</tr> -->
+							<tr class = "input">
+								{{ form.username}}
+							</tr>
+							<tr class = "input">
+								{{ form.password }}
+							</tr>
+							<tr>
+								<span>长期登录 </span>{{ form.auto_login }}
+							</tr>
+							<!-- {{ form.as_table }} -->
+							<tr>
+								<td><input id = "login_button" type = "submit" value = "登录"></td>
+							</tr>
+						</table>
+					</form>
+					<a href = "/registerPage/"><span>注册新用户</span></a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
