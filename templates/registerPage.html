@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>注册新用户</title>
+		<meta charset = "utf-8">
+	</head>
+	<body>
+		<form action = "/register/" method = "POST">
+			<table>
+				{% csrf_token %}
+				{{form.as_table}}
+				<input type = "submit" value = "注册">
+			</table>
+		</form>
+	</body>
+</html>

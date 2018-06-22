@@ -17,11 +17,11 @@ def script_load(script):
 	
 ###lua登录脚本###
 login_lua = """
-	if not redis.call("exists",KEYS[1]) then
+	if redis.call("exists",KEYS[1]) ~= 1 then
 		return false
 	end
 	local password = redis.call("hget",KEYS[1],"password")
-	if not password == ARGV[1] then
+	if password ~= ARGV[1] then
 		return false
 	end
 	return true

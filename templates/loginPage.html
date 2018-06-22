@@ -55,7 +55,9 @@
 			input{
 				margin-bottom:1em;
 			}
-
+			.input:focus{
+				border-color:red;
+			}
 		</style>
 	</head>
 	<body style = "background-color:#eeeeee">
@@ -89,7 +91,7 @@
 								{{ form.password }}
 							</tr>
 							<tr>
-								<span>长期登录 </span>{{ form.auto_login }}
+								<span>长期登录</span>{{ form.auto_login }}
 							</tr>
 							<!-- {{ form.as_table }} -->
 							<tr>
