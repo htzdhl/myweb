@@ -44,7 +44,7 @@ class registerForm(forms.Form):
 							},
 							widget = forms.widgets.TextInput(attrs={"class":"input","name":"email","placeholder":"请输入邮箱"}))
 							
-	captcha = CaptchaField()
+	captcha = CaptchaField(label = "你是机器人吗?")
 	
 	
 	

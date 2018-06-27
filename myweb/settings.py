@@ -28,7 +28,7 @@ SECRET_KEY = '^5swopw$x(5vc=qgwbj1tw2wl!vc6n4=rq4i=_f2keniknn+8q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u"192.168.101.45"]
+ALLOWED_HOSTS = [u"192.168.101.45",u"192.168.101.244"]
 
 
 # Application definition
@@ -43,6 +43,10 @@ INSTALLED_APPS = [
 	"myapp",
 	"captcha",
 ]
+
+#CAPTCHA_LENGTH=4
+CAPTCHA_IMAGE_SIZE=(100,25)
+CAPTCHA_NOISE_FUNCTIONS = ("captcha.helpers.noise_dots",)
 
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',

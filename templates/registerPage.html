@@ -3,14 +3,46 @@
 	<head>
 		<title>注册新用户</title>
 		<meta charset = "utf-8">
+		<style>
+			.captcha{
+				vertical-align:bottom;
+			}
+			#form{
+				margin:0 auto;
+				width:40%;
+				border:1px solid red;
+			}
+			#form form{
+				margin:4em;
+			}
+			#form .content{
+				text-align:right;
+			}
+			.input,#id_captcha_1{
+				padding:5px;
+			}
+		</style>
 	</head>
 	<body>
-		<form action = "/register/" method = "POST">
-			<table>
-				{% csrf_token %}
-				{{form.as_table}}
-				<input type = "submit" value = "注册">
-			</table>
-		</form>
+		<div id = "form">
+			<form action = "/register/" method = "POST">
+				<table>
+					{% csrf_token %}
+					<tr>
+						<td><span class = "title">账号</span></td>
+						<td class = "content">{{form.username}}</td>
+					</tr>
+					<tr>
+						<td><span class = "title">密码</span></td>
+						<td class = "content">{{form.password}}</td>
+					</tr>
+					<tr>
+						<td><span class = "title">你是机器人吗?</span></td>
+						<td>{{ form.captcha }}</td>
+					</tr>
+					<td><input type = "submit" value = "注册"></td>
+				</table>
+			</form>
+		</div>
 	</body>
 </html>

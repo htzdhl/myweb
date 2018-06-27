@@ -38,7 +38,7 @@ def login(request):
 			#if conn.exists("user:"+username):
 				return render(request,"main.html",{"user":username})
 			message = "账号或密码错误"
-			return render(request,"loginPage.html",{"from":form,"message":message})
+			return render(request,"loginPage.html",{"form":form,"message":message})
 		form = loginForm()
 		return render(request,"loginPage.html",{"form":form})
 		
